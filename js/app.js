@@ -1,6 +1,7 @@
 // Variables
 
 const btnEnviar = document.querySelector('#enviar');
+const formulario = document.querySelector('#enviar-mail'); // Agregar el parrado al formulario
 
 // Variables para campos
 const email =  document.querySelector('#email');
@@ -33,5 +34,21 @@ function eventListeners(){
 
      }else{
         e.target.classList.add('border', 'border-red-500');
+        mostrarError();
      }
+ }
+
+// Mostrar mensaje de error mediante un parráfo
+ function mostrarError(){
+     const mensajeError = document.createElement('p');
+     mensajeError.textContent = 'Todos los campos son obligatorios';
+     mensajeError.classList.add('border', 'border-red-500', 'background-red', 'text-red-500', 'p-3', 'mt-5', 'text-center', 'error');
+
+     const errores = document.querySelectorAll('.error'); // Revisar un solo valor
+     if (errores.length === 0){
+         // formulario.insertBefore(mensajeError, document.querySelector('.mb-10')); // agregar el mensaje al parráfo del formulario
+          formulario.appendChild(mensajeError); // agregar el mensaje al parráfo del formulario
+     }
+
+    
  }
